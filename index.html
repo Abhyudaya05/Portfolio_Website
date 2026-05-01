@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abhyudaya Singh Panwar | Data Analyst & BI Developer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Orbitron:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&family=Exo+2:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Orbitron:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@300;400;500;600&family=Exo+2:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"> -->
 
 <!-- ═══════════════════════════════════════════════
      EMAILJS CDN  —  loaded early so it's ready
@@ -282,6 +283,13 @@ nav {
   animation: fadeUp 0.6s 0.35s forwards;
   color: var(--hero-name-color);
   text-transform: uppercase;
+}
+
+/* ── CHANGE 1: Singh outline span ── */
+.hero-name .name-outline {
+  color: transparent;
+  -webkit-text-stroke: 0.7px #F5C400;
+  text-stroke: 0.7px #F5C400;
 }
 
 .hero-rotating {
@@ -1020,6 +1028,49 @@ footer {
 .cert-date { font-family: var(--font-mono); font-size: 11px; color: var(--muted); white-space: nowrap; }
 .cert-verify { font-family: var(--font-mono); font-size: 10px; color: var(--accent); font-weight: 600; white-space: nowrap; letter-spacing: 0.3px; }
 
+/* ─── CHANGE 2: Marquee reel styles ── */
+.marquee-wrapper {
+  background: #FFD700;
+  overflow: hidden;
+  width: 100%;
+  padding: 13px 0;
+  position: relative;
+  z-index: 2;
+  border-top: 2px solid #e6b800;
+  border-bottom: 2px solid #e6b800;
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 30s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  color: #000000;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0 6px;
+}
+.marquee-sep {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 900;
+  opacity: 0.55;
+  padding: 0 4px;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
   #hero { padding: 110px 48px 70px; }
@@ -1083,6 +1134,7 @@ footer {
   .avail-role { font-size: 11px; padding: 7px 14px; }
   .contact-val { font-size: 13px; }
   .theme-toggle { width: 32px; height: 32px; font-size: 15px; }
+  .marquee-item { font-size: 11px; }
 }
 
 @media (max-width: 360px) {
@@ -1126,7 +1178,8 @@ footer {
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-label">Available for Internship · India</div>
-    <h1 class="hero-name">Abhyudaya Singh Panwar</h1>
+    <!-- CHANGE 1: Split name — "Abhyudaya" unchanged, "Singh" gets outline only -->
+    <h1 class="hero-name"><span class="name-solid">Abhyudaya</span> <span class="name-outline">Singh</span></h1>
     <div class="hero-rotating" id="heroRotating">
       <div class="rotating-inner" id="rotatingInner">
         <span class="rotating-word">Data Analyst</span>
@@ -1153,7 +1206,7 @@ footer {
 <section id="about">
   <div class="section-inner">
     <span class="section-tag">// about me</span>
-    <h2 class="section-title">Overview</h2>
+    <h2 class="section-title">Who Am I?</h2>
 
     <div class="about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
       <div class="reveal">
@@ -1181,7 +1234,7 @@ footer {
         <div class="about-photo-wrap">
           <div style="position:relative;">
             <div class="about-photo-frame">
-              <img src="imageAbhi.jpg" alt="Abhyudaya Singh Panwar" />
+              <img src="imageAbhi.jpg" alt="Abhyudaya Singh" />
               <div class="about-photo-badge">🟢 Open to Internships</div>
             </div>
             <div class="about-float-card fc-a">
@@ -1380,6 +1433,54 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- CHANGE 2a: Marquee reel — below "What I Deliver" section -->
+<div class="marquee-wrapper" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack1">
+    <!-- first copy -->
+    <span class="marquee-item">Python</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Pandas</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">NumPy</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Matplotlib</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Seaborn</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Scikit-learn</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">TensorFlow</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Keras</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">SQL</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Power BI</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Tableau</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Excel</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Jupyter Notebook</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Google Colab</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Statistics</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Machine Learning</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Deep Learning</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">OpenCV</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Plotly</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Apache Spark</span><span class="marquee-sep">❯</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">Python</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Pandas</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">NumPy</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Matplotlib</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Seaborn</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Scikit-learn</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">TensorFlow</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Keras</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">SQL</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Power BI</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Tableau</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Excel</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Jupyter Notebook</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Google Colab</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Statistics</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Machine Learning</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Deep Learning</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">OpenCV</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Plotly</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Apache Spark</span><span class="marquee-sep">❯</span>
+  </div>
+</div>
 
 <div class="section-divider"></div>
 
@@ -1604,6 +1705,54 @@ footer {
     <a href="#contact" class="btn-primary" style="font-size:13px;padding:16px 40px;">Let's Connect →</a>
   </div>
 </section>
+
+<!-- CHANGE 2b: Marquee reel — directly after "Let's Connect" button -->
+<div class="marquee-wrapper" aria-hidden="true">
+  <div class="marquee-track" id="marqueeTrack2">
+    <!-- first copy -->
+    <span class="marquee-item">Python</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Pandas</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">NumPy</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Matplotlib</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Seaborn</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Scikit-learn</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">TensorFlow</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Keras</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">SQL</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Power BI</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Tableau</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Excel</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Jupyter Notebook</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Google Colab</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Statistics</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Machine Learning</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Deep Learning</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">OpenCV</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Plotly</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Apache Spark</span><span class="marquee-sep">❯</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">Python</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Pandas</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">NumPy</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Matplotlib</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Seaborn</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Scikit-learn</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">TensorFlow</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Keras</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">SQL</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Power BI</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Tableau</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Excel</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Jupyter Notebook</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Google Colab</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Statistics</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Machine Learning</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Deep Learning</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">OpenCV</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Plotly</span><span class="marquee-sep">❯</span>
+    <span class="marquee-item">Apache Spark</span><span class="marquee-sep">❯</span>
+  </div>
+</div>
 
 <!-- ═══════════════════════════════════════════════════════════
      CONTACT SECTION  —  EmailJS wired up
